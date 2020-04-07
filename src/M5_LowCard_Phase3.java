@@ -383,7 +383,7 @@ class Card
 
       // Return true if value is a valid value else false (added 'Q')
       return ((value >= '2' && value <= '9') || value == 'A' || value == 'K'
-            || value == 'Q' || value == 'J' || value == 'T');
+            || value == 'Q' || value == 'J' || value == 'T' || value == 'X');
    }
 
    /**
@@ -661,7 +661,7 @@ class Hand
    {
 
       // case for not adding a cards
-      if (card.getErrorFlag() || numCards == MAX_CARDS)
+      if (card == null || card.getErrorFlag() || numCards == MAX_CARDS)
       {
          return false;
       }
