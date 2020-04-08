@@ -14,7 +14,6 @@ import javax.swing.border.*;
 
 import java.util.Random;
 
-
 public class M5_LowCard_Phase2 {
    static int NUM_CARDS_PER_HAND = 7;
    static int NUM_PLAYERS = 2;
@@ -490,7 +489,6 @@ class Deck
    {
       allocateMasterPack();
       init(numPacks);
-      topCard = 0;
    }
 
    public Deck()
@@ -504,7 +502,7 @@ class Deck
    // Methods
    public void init(int numPacks)
    {
-      cards = new Card[numPacks * 52];
+      cards = new Card[numPacks * 56];
       int index = 0;
 
       while (numPacks > 0)
@@ -513,10 +511,10 @@ class Deck
          {
             cards[index] = masterPack[i];
             index++;
-         }
-         topCard = 0;
+         }         
          numPacks -= 1;
       }
+      topCard = 55; // 0-55
    }
 
    // Shuffles the cards[] by iterating through the cards[] and placing the
@@ -547,7 +545,7 @@ class Deck
       }
 
       int temp = topCard;
-      topCard += 1;
+      topCard--;
       return cards[temp];
    }
 
@@ -574,6 +572,7 @@ class Deck
    {
       // Checks to see if masterPack[] has already been filled
       if (masterPack[0] != null)
+         
       {
          return;
       }
@@ -592,48 +591,52 @@ class Deck
       masterPack[10] = new Card('3', Card.Suit.spades);
       masterPack[11] = new Card('2', Card.Suit.spades);
       masterPack[12] = new Card('A', Card.Suit.spades);
+      masterPack[13] = new Card('X', Card.Suit.spades);
 
-      masterPack[13] = new Card('K', Card.Suit.hearts);
-      masterPack[14] = new Card('Q', Card.Suit.hearts);
-      masterPack[15] = new Card('J', Card.Suit.hearts);
-      masterPack[16] = new Card('T', Card.Suit.hearts);
-      masterPack[17] = new Card('9', Card.Suit.hearts);
-      masterPack[18] = new Card('8', Card.Suit.hearts);
-      masterPack[19] = new Card('7', Card.Suit.hearts);
-      masterPack[20] = new Card('6', Card.Suit.hearts);
-      masterPack[21] = new Card('5', Card.Suit.hearts);
-      masterPack[22] = new Card('4', Card.Suit.hearts);
-      masterPack[23] = new Card('3', Card.Suit.hearts);
-      masterPack[24] = new Card('2', Card.Suit.hearts);
-      masterPack[25] = new Card('A', Card.Suit.hearts);
+      masterPack[14] = new Card('K', Card.Suit.hearts);
+      masterPack[15] = new Card('Q', Card.Suit.hearts);
+      masterPack[16] = new Card('J', Card.Suit.hearts);
+      masterPack[17] = new Card('T', Card.Suit.hearts);
+      masterPack[18] = new Card('9', Card.Suit.hearts);
+      masterPack[19] = new Card('8', Card.Suit.hearts);
+      masterPack[20] = new Card('7', Card.Suit.hearts);
+      masterPack[21] = new Card('6', Card.Suit.hearts);
+      masterPack[22] = new Card('5', Card.Suit.hearts);
+      masterPack[23] = new Card('4', Card.Suit.hearts);
+      masterPack[24] = new Card('3', Card.Suit.hearts);
+      masterPack[25] = new Card('2', Card.Suit.hearts);
+      masterPack[26] = new Card('A', Card.Suit.hearts);
+      masterPack[27] = new Card('X', Card.Suit.hearts);
 
-      masterPack[26] = new Card('K', Card.Suit.diamonds);
-      masterPack[27] = new Card('Q', Card.Suit.diamonds);
-      masterPack[28] = new Card('J', Card.Suit.diamonds);
-      masterPack[29] = new Card('T', Card.Suit.diamonds);
-      masterPack[30] = new Card('9', Card.Suit.diamonds);
-      masterPack[31] = new Card('8', Card.Suit.diamonds);
-      masterPack[32] = new Card('7', Card.Suit.diamonds);
-      masterPack[33] = new Card('6', Card.Suit.diamonds);
-      masterPack[34] = new Card('5', Card.Suit.diamonds);
-      masterPack[35] = new Card('4', Card.Suit.diamonds);
-      masterPack[36] = new Card('3', Card.Suit.diamonds);
-      masterPack[37] = new Card('2', Card.Suit.diamonds);
-      masterPack[38] = new Card('A', Card.Suit.diamonds);
+      masterPack[28] = new Card('K', Card.Suit.diamonds);
+      masterPack[29] = new Card('Q', Card.Suit.diamonds);
+      masterPack[30] = new Card('J', Card.Suit.diamonds);
+      masterPack[31] = new Card('T', Card.Suit.diamonds);
+      masterPack[32] = new Card('9', Card.Suit.diamonds);
+      masterPack[33] = new Card('8', Card.Suit.diamonds);
+      masterPack[34] = new Card('7', Card.Suit.diamonds);
+      masterPack[35] = new Card('6', Card.Suit.diamonds);
+      masterPack[36] = new Card('5', Card.Suit.diamonds);
+      masterPack[37] = new Card('4', Card.Suit.diamonds);
+      masterPack[38] = new Card('3', Card.Suit.diamonds);
+      masterPack[39] = new Card('2', Card.Suit.diamonds);
+      masterPack[40] = new Card('A', Card.Suit.diamonds);
+      masterPack[41] = new Card('X', Card.Suit.diamonds);
 
-      masterPack[39] = new Card('K', Card.Suit.clubs);
-      masterPack[40] = new Card('Q', Card.Suit.clubs);
-      masterPack[41] = new Card('J', Card.Suit.clubs);
-      masterPack[42] = new Card('T', Card.Suit.clubs);
-      masterPack[43] = new Card('9', Card.Suit.clubs);
-      masterPack[44] = new Card('8', Card.Suit.clubs);
-      masterPack[45] = new Card('7', Card.Suit.clubs);
-      masterPack[46] = new Card('6', Card.Suit.clubs);
-      masterPack[47] = new Card('5', Card.Suit.clubs);
-      masterPack[48] = new Card('4', Card.Suit.clubs);
-      masterPack[49] = new Card('3', Card.Suit.clubs);
-      masterPack[50] = new Card('2', Card.Suit.clubs);
-      masterPack[51] = new Card('A', Card.Suit.clubs);
+      masterPack[42] = new Card('K', Card.Suit.clubs);
+      masterPack[43] = new Card('Q', Card.Suit.clubs);
+      masterPack[44] = new Card('J', Card.Suit.clubs);
+      masterPack[45] = new Card('T', Card.Suit.clubs);
+      masterPack[46] = new Card('9', Card.Suit.clubs);
+      masterPack[47] = new Card('8', Card.Suit.clubs);
+      masterPack[48] = new Card('7', Card.Suit.clubs);
+      masterPack[49] = new Card('6', Card.Suit.clubs);
+      masterPack[50] = new Card('5', Card.Suit.clubs);
+      masterPack[51] = new Card('4', Card.Suit.clubs);
+      masterPack[52] = new Card('3', Card.Suit.clubs);
+      masterPack[53] = new Card('2', Card.Suit.clubs);
+      masterPack[54] = new Card('A', Card.Suit.clubs);
+      masterPack[55] = new Card('X', Card.Suit.clubs);
    }
 
    /**
@@ -644,7 +647,16 @@ class Deck
     * @return - true if addCard was successful false otherwise
     */
    boolean addCard (Card card) {
-      return false;
+      for(int i = 0; i < cards.length; i++) {
+         if(Character.compare(cards[i].getValue(), card.getValue()) == 0 && 
+               cards[i].getSuit() == card.getSuit()) {
+            return false; // card exists
+         }
+      }
+      
+      // add card to top, increment topCard
+      cards[topCard] = new Card(card.getValue(), card.getSuit());
+      topCard++;
    }
 
    /**
@@ -655,15 +667,27 @@ class Deck
     * @return - true if removed from the deck, flase otherwise
     */
    boolean removeCard(Card card) {
+      for(int i = 0; i < cards.length; i++) {
+         if(Character.compare(cards[i].getValue(), card.getValue()) == 0 
+               && cards[i].getSuit() == cards[i].getSuit()) {
+            // card exists remove it, and put top card there.
+            cards[i] = new Card(cards[topCard].getValue(),
+                  cards[topCard].getSuit());
+            cards[topCard] = null;
+            topCard--;
+            return true;
+         }
+      }
+      
+      // card doesn't exist
       return false;
    }
    
    /**
-    * put all the cards in the deck back into the right order according to value
-    * *???????????????? check if this function exists
+    * put all of the cards in the deck back into the right order
     */
    void sort() {
-      
+      Card.arraySort(masterPack, masterPack.length);
    }
    
    /**
@@ -672,7 +696,7 @@ class Deck
     */
    int getNumCards() {
       if(cards != null) {
-         return cards.length;   
+         return topCard + 1;   
       }
       
       return 0;
@@ -850,7 +874,7 @@ class Hand
     * sort the hand by calling arraySort() from Card class
     */
    void sort() {
-      
+      Card.arraySort(myCards, myCards.length);
    }
    
 }// end Hand class
